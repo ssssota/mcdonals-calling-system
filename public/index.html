@@ -1,16 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>リンク</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <ul>
-        <li><a href="/receipt.html" target="_blank">受付</a></li>
-        <li><a href="/request.html" target="_blank">呼び出しリクエスト</a></li>
-        <li><a href="/display.html" target="_blank">表示</a></li>
-    </ul>
+    <div class="wrapper">
+        <ul class="type-selector">
+            <li><a href="/index.html?type=receipt" target="_blank">Receipt</a></li>
+            <li><a href="/index.html?type=request" target="_blank">Request</a></li>
+            <li><a href="/index.html?type=display" target="_blank">Display</a></li>
+        </ul>
+        <div class="container">
+            <div class="queue">
+                <h1>受付済</h1>
+                <ul id="queue">00</ul>
+            </div>
+            <div class="request">
+                <h1>呼出中</h1>
+                <p id="request" style="font-size:4em;">00</p>
+            </div>
+            <div class="latency">
+                <p>待ち時間<span id="latency" style="font-size:8em;"></span>分</p>
+            </div>
+            <div class="add-request">
+                <form id="addRequest">
+                    <p>受付</p>
+                    <p><input type="number" id="number" placeholder="受付番号" required min="1"></p>
+                    <p><input type="number" id="people" placeholder="人数" required min="1" max="4"></p>
+                    <p><input type="submit" value="ADD"></p>
+                </form>
+            </div>
+            <!--
+            <div class="push-request">
+                <form id="pushRequest">
+                    <p>呼出</p>
+                    <p><input type="number" id="number" placeholder="受付番号"></p>
+                    <p><input type="submit" value="CALL"></p>
+                </form>
+            </div>
+            -->
+        </div>
+    </div>
+    <script src="common.js"></script>
 </body>
 </html>
