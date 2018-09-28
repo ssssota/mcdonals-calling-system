@@ -5,13 +5,8 @@ const app = express()
 const port = 8000
 
 let queueState = {
-    'request': [1, 2],
-    'queue': [
-        {'number': 1, 'people': 4},
-        {'number': 2, 'people': 3},
-        {'number': 3, 'people': 2},
-        {'number': 4, 'people': 4}
-    ]
+    'request': [],
+    'queue': []
 }
 
 app.use(express.static('public'))
