@@ -17,7 +17,7 @@
 4. 任意のディレクトリに移り，次のコマンドでクローンを作成（ダウンロード）
 
     ```sh
-    git clone https://ssssota@bitbucket.org/ssssota/mcdonals_system.git
+    git clone https://ssssota@bitbucket.org/ssssota/mcdonalds_system.git
     ```
 
 5. ディレクトリを移りNPMで必要モジュールをダウンロード
@@ -34,7 +34,7 @@
     node index
     ```
 
-2. [localhost:8000](http://localhost:8000/)にアクセス
+2. [localhost:8000](http://localhost:8000/)もしくはプライベートIP経由でアクセス
 3. Receiptで受付番号と人数を登録
 4. Requestで呼出に追加
 5. Displayは操作できず表示のみ

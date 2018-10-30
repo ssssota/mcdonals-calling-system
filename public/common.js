@@ -41,6 +41,12 @@ document.addEventListener('DOMContentLoaded', e => {
             })
             break
     }
+    let chime
+    if (confirm('通知音をオンにしますか？')) {
+        chime = new Audio('./se.mp3')
+        chime.load()
+    }
+
     document.title = type
 
     // WebSocket接続
@@ -54,6 +60,7 @@ document.addEventListener('DOMContentLoaded', e => {
 
     // stateの更新時に表示を更新
     const reset = () => {
+        if (chime) chime.play()
         // 受付済みの更新
         $queue.textContent = ''
         queueState.queue.forEach((value, index) => {
@@ -86,7 +93,7 @@ document.addEventListener('DOMContentLoaded', e => {
         })
 
         // 待ち時間の更新
-        $latency.textContent = queueState.queue.length * 5
+        $latency.textContent = queueState.queue.length * 4
     }
 
     ws.addEventListener('open', () => console.log('WebSocket is opened.'))
