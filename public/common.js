@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', e => {
     switch (type){
         // 受付
         case 'receipt':
-            document.querySelectorAll('.type-selector').forEach(node => {
+            document.querySelectorAll('.type-selector,.streaming').forEach(node => {
                 node.style.display = 'none'
             })
             // 受け付けた際の処理
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', e => {
             break
         // 呼出
         case 'request':
-            document.querySelectorAll('.type-selector,.add-request').forEach(node => {
+            document.querySelectorAll('.type-selector,.add-request,.streaming').forEach(node => {
                 node.style.display = 'none'
             })
             break
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', e => {
             document.querySelectorAll('.type-selector,.add-request').forEach(node => {
                 node.style.display = 'none'
             })
+            document.querySelector('#container').classList.add('display')
             break
     }
     let chime
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', e => {
         $request.textContent = ''
         queueState.request.forEach((value, index) => {
             $request.insertAdjacentHTML('beforeend', `<span id="request${value}">${value}, </span>`)
-            if (type === 'receipt') {
+            if (type !== 'display') {
                 document.querySelector(`#request${value}`).addEventListener('click', e => {
                     queueState.request.splice(index, 1)
                     queueState.queue.forEach((val, index) => {
