@@ -17,10 +17,10 @@
         <div class="container" id="container">
             <div class="streaming">
                 <div class="live-viewing">
-                    <!--<img src="http://192.168.179.5:8080/?action=stream">-->
-                    <img src="manji.png">
-                    <!--<img src="http://192.168.179.5:8081/?action=stream">-->
-                    <img src="manji.png">
+                    <img src="http://192.168.179.5:8080/?action=stream">
+                    <img src="http://192.168.179.5:8081/?action=stream">
+                    <!--<img src="manji.png">-->
+                    <!--<img src="manji.png">-->
                 </div>
             </div>
             <div class="queue">
@@ -32,7 +32,8 @@
                 <p id="request" style="font-size:4em;"></p>
             </div>
             <div class="latency">
-                <p>待ち時間<span id="latency" style="font-size:8em;"></span>分</p>
+                <p>待ち時間 およそ<span id="latency" style="font-size:8em;"></span>分</p>
+                <p>呼び出しの際に教室にいなかった場合、再受付していただきます。</p>
             </div>
             <div class="add-request">
                 <form id="addRequest">
@@ -40,6 +41,13 @@
                     <p><input type="number" id="number" placeholder="受付番号" required min="1"></p>
                     <p><input type="number" id="people" placeholder="人数" required min="1" max="4"></p>
                     <p><input type="submit" value="ADD"></p>
+                </form>
+            </div>
+            <div class="chat">
+                <form id="chatForm">
+                    <p>チャット</p>
+                    <p><input type="text" id="message" placeholder="メッセージ" maxlength="100"></p>
+                    <p><input type="submit" value="SEND"></p>
                 </form>
             </div>
         </div>

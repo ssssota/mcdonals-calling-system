@@ -36,104 +36,74 @@ body {}
                 .type-selector li a {
                     color: #000;
                 }
-        .container {
-            height: 100%;
-            display: grid;
-            grid-template-areas:
-                'queue request'
-                'queue latency'
-                'addreq addreq'
-                'pushreq pushreq';
-            grid-template-columns: 1fr 2fr;
-            grid-template-rows: 1fr 1fr 50px;
-        }
-            .container div {
-                border: 1px solid #000;
-                font-size: 2rem;
-            }
-            .container .queue {
-                grid-area: queue;
-                padding: 5%;
-            }
-            .container .request {
-                grid-area: request;
-                padding: 5%;
-            }
-            .container .latency {
-                grid-area: latency;
-                padding: 5%;
-                margin: auto;
-                border: 0;
-            }
-            .container .add-request {
-                grid-area: addreq;
-            }
-                .add-request form {
+                .container {
                     height: 100%;
                     display: grid;
-                    grid-template-columns: 100px 1fr 1fr 100px;
+                    grid-template-areas:
+                        'queue request'
+                        'queue latency'
+                        'addreq chat';
+                    grid-template-columns: 1fr 2fr;
+                    grid-template-rows: 1fr 1fr 50px;
                 }
-                    .add-request form p {
-                        display: block;
-                        width: 100%;
-                        text-align: center;
+                    .container div {
+                        border: 1px solid #000;
+                        font-size: 2rem;
                     }
-                        .add-request form p input {
-                            width: 100%;
-                            height: 100%;
-                            border: 0;
-                            font-size: 1.5rem;
-                            text-align: center;
-                        }
-        .container {
-            height: 100%;
-            display: grid;
-            grid-template-areas:
-                'queue request'
-                'queue latency'
-                'addreq addreq'
-                'pushreq pushreq';
-            grid-template-columns: 1fr 2fr;
-            grid-template-rows: 1fr 1fr 50px;
-        }
-            .container div {
-                border: 1px solid #000;
-                font-size: 2rem;
-            }
-            .container .queue {
-                grid-area: queue;
-                padding: 5%;
-            }
-            .container .request {
-                grid-area: request;
-                padding: 5%;
-            }
-            .container .latency {
-                grid-area: latency;
-                padding: 5%;
-                margin: auto;
-                border: 0;
-            }
-            .container .add-request {
-                grid-area: addreq;
-            }
-                .add-request form {
-                    height: 100%;
-                    display: grid;
-                    grid-template-columns: 100px 1fr 1fr 100px;
-                }
-                    .add-request form p {
-                        display: block;
-                        width: 100%;
-                        text-align: center;
+                    .container .queue {
+                        grid-area: queue;
+                        padding: 5%;
                     }
-                        .add-request form p input {
-                            width: 100%;
+                    .container .request {
+                        grid-area: request;
+                        padding: 5%;
+                    }
+                    .container .latency {
+                        grid-area: latency;
+                        padding: 5%;
+                        margin: auto;
+                        border: 0;
+                    }
+                    .container .chat {
+                        grid-area: chat;
+                    }
+                       .chat form {
                             height: 100%;
-                            border: 0;
-                            font-size: 1.5rem;
-                            text-align: center;
+                            display: grid;
+                            grid-template-columns: 100px 1fr 100px;
                         }
+                           .chat form p {
+                                display: block;
+                                width: 100%;
+                                text-align: center;
+                            }
+                               .chat form p input {
+                                    width: 100%;
+                                    height: 100%;
+                                    border: 0;
+                                    font-size: 1.5rem;
+                                    text-align: center;
+                                }
+                    .container .add-request {
+                        grid-area: addreq;
+                    }
+                        .add-request form {
+                            height: 100%;
+                            display: grid;
+                            grid-template-columns: 100px 1fr 1fr 100px;
+                        }
+                            .add-request form p {
+                                display: block;
+                                width: 100%;
+                                text-align: center;
+                            }
+                                .add-request form p input {
+                                    width: 100%;
+                                    height: 100%;
+                                    border: 0;
+                                    font-size: 1.5rem;
+                                    text-align: center;
+                                }
         .container.display {
             height: 100%;
             display: grid;
@@ -167,6 +137,9 @@ body {}
                 }
                 .container .streaming .live-viewing {
                     display: block;
+                    width: 100%;
+                }
+                .container .streaming .live-viewing img {
                     width: 100%;
                 }
             .container .queue {

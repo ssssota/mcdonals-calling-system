@@ -19,11 +19,14 @@ document.addEventListener('DOMContentLoaded', e => {
             const $people = document.querySelector('#people')
             document.querySelector('#addRequest').addEventListener('submit', e => {
                 e.preventDefault();
+                if (Number($number.value)%2) {
+                    return
+                }
 
                 queueState.queue.push({'number': $number.value, 'people': $people.value})
                 ws.send(JSON.stringify(queueState))
 
-                $number.value = Number($number.value) + 1
+                $number.value = null
                 $people.value = null
                 $number.focus()
             })
@@ -58,14 +61,23 @@ document.addEventListener('DOMContentLoaded', e => {
     const $queue = document.querySelector('#queue')
     const $request = document.querySelector('#request')
     const $latency = document.querySelector('#latency')
+    const $chat = document.querySelector('#chatForm')
+    const $message = document.querySelector('#message')
 
     // stateの更新時に表示を更新
     const reset = () => {
         if (chime) chime.play()
+        let playerCount = 0
+
+        if (queueState.chat) {
+            alert(queueState.chat)
+        }
+
         // 受付済みの更新
         $queue.textContent = ''
         queueState.queue.forEach((value, index) => {
             $queue.insertAdjacentHTML('beforeend', `<li id="queue${value.number}">${value.number}番 ${value.people}名</li>`)
+            playerCount += Number(value.people)
             if (type === 'request') {
                 document.querySelector(`#queue${value.number}`).addEventListener('click', e => {
                     if (queueState.request.indexOf(value.number) == -1) {
@@ -94,8 +106,17 @@ document.addEventListener('DOMContentLoaded', e => {
         })
 
         // 待ち時間の更新
-        $latency.textContent = queueState.queue.length * 4
+
+        $latency.textContent = playerCount
     }
+
+    $chat.addEventListener('submit', e => {
+        e.preventDefault()
+
+        queueState.chat = $message.value
+        $message.value = ''
+        ws.send(JSON.stringify(queueState))
+    })
 
     ws.addEventListener('open', () => console.log('WebSocket is opened.'))
     ws.addEventListener('message', e => {
