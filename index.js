@@ -2,7 +2,7 @@ const express = require('express')
 const wsServer = require('ws').Server
 const app = express()
 
-const port = 8000
+const port = 8080
 
 let queueState = {
     'request': [],
